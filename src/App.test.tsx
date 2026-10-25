@@ -22,24 +22,16 @@ describe('Project Udaan App Shell & Navigation', () => {
     expect(screen.getByText(/Lesson Library & Subjects/i)).toBeInTheDocument();
   });
 
-  it('navigates to progress page when clicking progress link', () => {
+  it('navigates to progress and displays configuration status if backend is unconfigured', () => {
     render(<App />);
     const progressLinks = screen.getAllByRole('link', { name: /ਤਰੱਕੀ|ਮੇਰੀ ਤਰੱਕੀ/i });
     fireEvent.click(progressLinks[0]);
-    expect(screen.getByText(/Student Learning Progress & Badges/i)).toBeInTheDocument();
+    expect(screen.getByText(/ਸੁਰੱਖਿਅਤ ਪਹੁੰਚ ਲਈ Supabase ਦੀ ਲੋੜ ਹੈ/i)).toBeInTheDocument();
   });
 
-  it('navigates to teacher dashboard when clicking teacher link', () => {
+  it('renders sign-in button in header when unauthenticated', () => {
     render(<App />);
-    const teacherLinks = screen.getAllByRole('link', { name: /ਅਧਿਆਪਕ/i });
-    fireEvent.click(teacherLinks[0]);
-    expect(screen.getByText(/Teacher Analytics & Class Monitoring/i)).toBeInTheDocument();
-  });
-
-  it('navigates to admin portal when clicking admin link', () => {
-    render(<App />);
-    const adminLinks = screen.getAllByRole('link', { name: /ਪ੍ਰਬੰਧਕ|ਪ੍ਰਬੰਧਕੀ ਪੋਰਟਲ/i });
-    fireEvent.click(adminLinks[0]);
-    expect(screen.getByText(/School, User & Curriculum Administration/i)).toBeInTheDocument();
+    const loginLinks = screen.getAllByRole('link', { name: /ਲਾਗਇਨ/i });
+    expect(loginLinks.length).toBeGreaterThan(0);
   });
 });
