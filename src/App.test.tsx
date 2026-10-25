@@ -15,11 +15,11 @@ describe('Project Udaan App Shell & Navigation', () => {
     expect(screen.getAllByText(/ਪਾਠ ਲਾਇਬ੍ਰੇਰੀ/i).length).toBeGreaterThan(0);
   });
 
-  it('navigates to lesson library placeholder when clicking lessons link', () => {
+  it('navigates to lesson library when clicking lessons link', () => {
     render(<App />);
     const lessonLinks = screen.getAllByRole('link', { name: /ਪਾਠ ਲਾਇਬ੍ਰੇਰੀ/i });
     fireEvent.click(lessonLinks[0]);
-    expect(screen.getByText(/Lesson Library & Subjects/i)).toBeInTheDocument();
+    expect(screen.getByText(/Digital Literacy Library/i)).toBeInTheDocument();
   });
 
   it('navigates to progress and displays configuration status if backend is unconfigured', () => {

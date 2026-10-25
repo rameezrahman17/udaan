@@ -46,3 +46,25 @@ export interface StudentDashboardData {
   recentQuizzes: QuizAttemptResult[];
   isDemoData: boolean;
 }
+
+export type DifficultyLevel = 'all' | 'beginner' | 'intermediate' | 'advanced';
+export type ContentLanguage = 'all' | 'pa' | 'en';
+
+export interface LessonItem {
+  id: string;
+  subject_id: string;
+  subject_name_en: string;
+  subject_name_pa: string;
+  title_en: string;
+  title_pa: string;
+  summary_en: string;
+  summary_pa: string;
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  languages_available: ('pa' | 'en')[];
+  duration_minutes: number;
+  total_slides: number;
+  is_published: boolean;
+  is_cached_offline: boolean;
+  order_index: number;
+}
+
