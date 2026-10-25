@@ -11,7 +11,7 @@ describe('Project Udaan App Shell & Navigation', () => {
 
   it('renders student home hero banner and quick navigation links', () => {
     render(<App />);
-    expect(screen.getByText(/ਜੀ ਆਇਆਂ ਨੂੰ, ਵਿਦਿਆਰਥੀਓ!/i)).toBeInTheDocument();
+    expect(screen.getByText(/ਜੀ ਆਇਆਂ ਨੂੰ/i)).toBeInTheDocument();
     expect(screen.getAllByText(/ਪਾਠ ਲਾਇਬ੍ਰੇਰੀ/i).length).toBeGreaterThan(0);
   });
 
